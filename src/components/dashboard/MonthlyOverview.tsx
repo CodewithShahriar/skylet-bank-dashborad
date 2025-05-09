@@ -7,10 +7,8 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  BarChart,
-  Bar,
-  Cell,
-  TooltipProps,
+  LineChart,
+  Line,
 } from 'recharts';
 
 const formatCurrency = (amount: number): string => {
@@ -71,12 +69,12 @@ const MonthlyOverview = () => {
   const currentYear = new Date().getFullYear();
   const currencySymbol = account?.currency || '$';
 
-  const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
+  const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-3 border border-gray-200 rounded-md shadow-md">
           <p className="font-medium text-gray-700">{label}</p>
-          {payload.map((entry, index) => (
+          {payload.map((entry: any, index: number) => (
             <p key={index} style={{ color: entry.color }}>
               {entry.name}: {formatCurrency(entry.value as number)}
             </p>
@@ -89,7 +87,7 @@ const MonthlyOverview = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Total Income Card */}
+      {/* Income Line Chart */}
       <Card className="border border-gray-200 bg-white shadow-sm">
         <CardContent className="p-5">
           <div className="flex flex-col">
@@ -105,7 +103,7 @@ const MonthlyOverview = () => {
 
             <div className="h-48 mt-2">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
+                <LineChart
                   data={monthlyData.weeklyData}
                   margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
                 >
@@ -113,19 +111,15 @@ const MonthlyOverview = () => {
                   <XAxis dataKey="name" stroke="#888" fontSize={12} />
                   <YAxis stroke="#888" fontSize={12} tickFormatter={(value) => `$${value}`} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="income" name="Income" fill="#4CD964" radius={[4, 4, 0, 0]}>
-                    {monthlyData.weeklyData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={`rgba(3, 105, 30, ${0.6 + (index * 0.1)})`} />
-                    ))}
-                  </Bar>
-                </BarChart>
+                  <Line type="monotone" dataKey="income" name="Income" stroke="#4CAF50" strokeWidth={2} />
+                </LineChart>
               </ResponsiveContainer>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Total Expenses Card */}
+      {/* Spending Line Chart */}
       <Card className="border border-gray-200 bg-white shadow-sm">
         <CardContent className="p-5">
           <div className="flex flex-col">
@@ -141,7 +135,7 @@ const MonthlyOverview = () => {
 
             <div className="h-48 mt-2">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
+                <LineChart
                   data={monthlyData.weeklyData}
                   margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
                 >
@@ -149,12 +143,8 @@ const MonthlyOverview = () => {
                   <XAxis dataKey="name" stroke="#888" fontSize={12} />
                   <YAxis stroke="#888" fontSize={12} tickFormatter={(value) => `$${value}`} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="expense" name="Expense" fill="#FF3B30" radius={[4, 4, 0, 0]}>
-                    {monthlyData.weeklyData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={`rgba(158, 2, 2, ${0.6 + (index * 0.1)})`} />
-                    ))}
-                  </Bar>
-                </BarChart>
+                  <Line type="monotone" dataKey="expense" name="Spending" stroke="#F44336" strokeWidth={2} />
+                </LineChart>
               </ResponsiveContainer>
             </div>
           </div>
