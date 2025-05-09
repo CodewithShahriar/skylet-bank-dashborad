@@ -19,7 +19,7 @@ const TopBar = ({ onMenuClick, isSidebarOpen }: TopBarProps) => {
   const { user, logout } = useAuth();
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 via-blue-400 to-lime-500 border-b border-gray-200 py-2 px-4 flex items-center justify-between">
+    <header className="bg-gradient-to-r from-blue-500/70 via-blue-400/50 to-lime-500/70 border-b border-gray-200 py-2 px-4 flex items-center justify-between backdrop-blur-md">
       <div className="flex items-center">
         <Button variant="ghost" size="icon" onClick={onMenuClick} className="mr-2 text-gray-100">
           <Menu className="h-5 w-5" />
