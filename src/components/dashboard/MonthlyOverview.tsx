@@ -96,11 +96,11 @@ const MonthlyOverview = () => {
             <div className="flex justify-between items-center mb-4">
               <div className="flex flex-col">
                 <span className="text-sm text-gray-500">Total Income</span>
-                <span className="text-2xl font-bold text-green-600">
+                <span className="text-2xl font-bold text-green-700">
                   {currencySymbol}{monthlyData.totalIncome.toLocaleString()}
                 </span>
               </div>
-              <span className="text-sm text-gray-500">{currentMonth} {currentYear}</span>
+              <span className="text-sm text-gray-900">{currentMonth} {currentYear}</span>
             </div>
 
             <div className="h-48 mt-2">
@@ -115,7 +115,7 @@ const MonthlyOverview = () => {
                   <Tooltip content={<CustomTooltip />} />
                   <Bar dataKey="income" name="Income" fill="#4CD964" radius={[4, 4, 0, 0]}>
                     {monthlyData.weeklyData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={`rgba(76, 217, 100, ${0.6 + (index * 0.1)})`} />
+                      <Cell key={`cell-${index}`} fill={`rgba(3, 105, 30, ${0.6 + (index * 0.1)})`} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -132,11 +132,11 @@ const MonthlyOverview = () => {
             <div className="flex justify-between items-center mb-4">
               <div className="flex flex-col">
                 <span className="text-sm text-gray-500">Total Spending</span>
-                <span className="text-2xl font-bold text-red-500">
+                <span className="text-2xl font-bold text-red-700">
                   {currencySymbol}{monthlyData.totalExpense.toLocaleString()}
                 </span>
               </div>
-              <span className="text-sm text-gray-500">{currentMonth} {currentYear}</span>
+              <span className="text-sm text-gray-900">{currentMonth} {currentYear}</span>
             </div>
 
             <div className="h-48 mt-2">
@@ -151,7 +151,7 @@ const MonthlyOverview = () => {
                   <Tooltip content={<CustomTooltip />} />
                   <Bar dataKey="expense" name="Expense" fill="#FF3B30" radius={[4, 4, 0, 0]}>
                     {monthlyData.weeklyData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={`rgba(255, 59, 48, ${0.6 + (index * 0.1)})`} />
+                      <Cell key={`cell-${index}`} fill={`rgba(158, 2, 2, ${0.6 + (index * 0.1)})`} />
                     ))}
                   </Bar>
                 </BarChart>
