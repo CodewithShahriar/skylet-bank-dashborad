@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -50,7 +49,12 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div
+      className="flex h-screen"
+      style={{
+        background: 'linear-gradient(to bottom right, #f9fafb, #e0f7fa, #f3e5f5)', // Light gradient background
+      }}
+    >
       {/* Sidebar */}
       <Sidebar 
         isOpen={sidebarOpen} 
@@ -60,7 +64,7 @@ const DashboardLayout = () => {
       
       {/* Main content */}
       <div className={cn(
-        "flex flex-col flex-1 transition-all duration-300 ease-in-out bg-gray-50",
+        "flex flex-col flex-1 transition-all duration-300 ease-in-out",
         sidebarOpen && !isMobile && "ml-64"
       )}>
         <TopBar 
