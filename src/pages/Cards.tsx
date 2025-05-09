@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PlusCircle, ShieldCheck, Globe, CreditCard as CardIcon, DollarSign, Zap, Lock, RefreshCw } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Globe, CreditCard as CardIcon, DollarSign, Zap, Lock, RefreshCw, ShoppingCart, Film, Coffee, Plane } from 'lucide-react';
 import { useBankData } from '@/contexts/BankDataContext';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState } from 'react';
@@ -141,13 +141,13 @@ const Cards = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left Side: Card Display */}
             <div className="md:col-span-2 flex flex-col h-full">
-              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
+              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200 shadow-sm">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-medium text-gray-800">Debit Card</h3>
-                  <span className="text-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
+                  <h3 className="font-semibold text-gray-800">Debit Card</h3>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
                 </div>
                 <div className="w-full max-w-md mx-auto">
-                  <div className="relative transition-all duration-200 transform hover:scale-105">
+                  <div className="relative transition-transform duration-200 transform hover:scale-105">
                     <DebitCard />
                   </div>
                 </div>
@@ -160,26 +160,70 @@ const Cards = () => {
               />
             </div>
 
-            {/* Right Side: Additional Content */}
+            {/* Right Side: Recent Activity */}
             <div className="flex flex-col space-y-4">
-              <Card className="p-4">
+              <Card className="p-4 border border-gray-200 shadow-sm">
                 <CardHeader>
-                  <CardTitle>Card Benefits</CardTitle>
+                  <CardTitle className="text-gray-800 font-semibold">Recent Activity</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc pl-5 text-sm text-gray-600">
-                    <li>Zero liability on unauthorized transactions</li>
-                    <li>Access to 24/7 customer support</li>
-                    <li>Exclusive discounts on partner merchants</li>
+                  <ul className="space-y-4">
+                    {/* Transaction 1 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
+                          <ShoppingCart size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $120.00</span>
+                    </li>
+
+                    {/* Transaction 2 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-green-50 text-green-600 rounded-full">
+                          <Film size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $15.99</span>
+                    </li>
+
+                    {/* Transaction 3 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-yellow-50 text-yellow-600 rounded-full">
+                          <Coffee size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $8.50</span>
+                    </li>
+
+                    {/* Transaction 4 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-red-50 text-red-600 rounded-full">
+                          <Plane size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $500.00</span>
+                    </li>
                   </ul>
-                </CardContent>
-              </Card>
-              <Card className="p-4">
-                <CardHeader>
-                  <CardTitle>Spending Insights</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">Track your spending patterns and manage your finances effectively.</p>
                 </CardContent>
               </Card>
             </div>
@@ -191,13 +235,13 @@ const Cards = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left Side: Card Display */}
             <div className="md:col-span-2 flex flex-col h-full">
-              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
+              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200 shadow-sm">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-medium text-gray-800">Credit Card</h3>
-                  <span className="text-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
+                  <h3 className="font-semibold text-gray-800">Credit Card</h3>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
                 </div>
                 <div className="w-full max-w-md mx-auto">
-                  <div className="relative transition-all duration-200 transform hover:scale-105">
+                  <div className="relative transition-transform duration-200 transform hover:scale-105">
                     <CreditCardComponent />
                   </div>
                 </div>
@@ -211,22 +255,108 @@ const Cards = () => {
               />
             </div>
 
-            {/* Right Side: Additional Content */}
+            {/* Right Side: Credit Utilization */}
             <div className="flex flex-col space-y-4">
-              <Card className="p-4">
+              <Card className="p-4 border border-gray-200 shadow-sm">
                 <CardHeader>
-                  <CardTitle>Reward Points</CardTitle>
+                  <CardTitle className="text-gray-800 font-semibold">Credit Utilization</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">Earn reward points on every transaction and redeem them for exciting offers.</p>
+                  <div className="space-y-4">
+                    {/* Progress Bar */}
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div className="bg-blue-600 h-2.5 rounded-full w-3/4"></div>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <div className="text-gray-700">Used: $7,561.47</div>
+                      <div className="text-gray-500">Total: $10,000.00</div>
+                    </div>
+
+                    {/* Additional Features */}
+                    <div className="border-t border-gray-200 pt-4 mt-4">
+                      <div className="flex justify-between mb-2">
+                        <div className="flex items-center">
+                          <ShieldCheck className="h-4 w-4 mr-2 text-gray-600" />
+                          <span className="text-gray-700">Payment Protection</span>
+                        </div>
+                        <span className="text-green-500">Active</span>
+                      </div>
+
+                      <div className="flex justify-between">
+                        <div className="flex items-center">
+                          <Globe className="h-4 w-4 mr-2 text-gray-600" />
+                          <span className="text-gray-700">International Usage</span>
+                        </div>
+                        <span className="text-red-500">Disabled</span>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
-              <Card className="p-4">
+
+              {/* Recent Activity */}
+              <Card className="p-4 border border-gray-200 shadow-sm">
                 <CardHeader>
-                  <CardTitle>Credit Limit</CardTitle>
+                  <CardTitle className="text-gray-800 font-semibold">Recent Activity</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">Your current credit limit is <strong>$10,000</strong>. Upgrade your limit for more flexibility.</p>
+                  <ul className="space-y-4">
+                    {/* Transaction 1 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
+                          <ShoppingCart size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $120.00</span>
+                    </li>
+
+                    {/* Transaction 2 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-green-50 text-green-600 rounded-full">
+                          <Film size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $15.99</span>
+                    </li>
+
+                    {/* Transaction 3 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-yellow-50 text-yellow-600 rounded-full">
+                          <Coffee size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $8.50</span>
+                    </li>
+
+                    {/* Transaction 4 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-red-50 text-red-600 rounded-full">
+                          <Plane size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $500.00</span>
+                    </li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
@@ -238,13 +368,13 @@ const Cards = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left Side: Card Display */}
             <div className="md:col-span-2 flex flex-col h-full">
-              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
+              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200 shadow-sm">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-medium text-gray-800">Prepaid Card</h3>
-                  <span className="text-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
+                  <h3 className="font-semibold text-gray-800">Prepaid Card</h3>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
                 </div>
                 <div className="w-full max-w-md mx-auto">
-                  <div className="relative transition-all duration-200 transform hover:scale-105">
+                  <div className="relative transition-transform duration-200 transform hover:scale-105">
                     <PrepaidCard />
                   </div>
                 </div>
@@ -257,22 +387,70 @@ const Cards = () => {
               />
             </div>
 
-            {/* Right Side: Additional Content */}
+            {/* Right Side: Recent Activity */}
             <div className="flex flex-col space-y-4">
-              <Card className="p-4">
+              <Card className="p-4 border border-gray-200 shadow-sm">
                 <CardHeader>
-                  <CardTitle>Travel Benefits</CardTitle>
+                  <CardTitle className="text-gray-800 font-semibold">Recent Activity</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">Enjoy exclusive travel benefits and discounts on international transactions.</p>
-                </CardContent>
-              </Card>
-              <Card className="p-4">
-                <CardHeader>
-                  <CardTitle>Reload Options</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">Easily reload your prepaid card anytime, anywhere.</p>
+                  <ul className="space-y-4">
+                    {/* Transaction 1 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
+                          <ShoppingCart size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $120.00</span>
+                    </li>
+
+                    {/* Transaction 2 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-green-50 text-green-600 rounded-full">
+                          <Film size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $15.99</span>
+                    </li>
+
+                    {/* Transaction 3 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-yellow-50 text-yellow-600 rounded-full">
+                          <Coffee size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $8.50</span>
+                    </li>
+
+                    {/* Transaction 4 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-red-50 text-red-600 rounded-full">
+                          <Plane size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $500.00</span>
+                    </li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
@@ -284,13 +462,13 @@ const Cards = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left Side: Card Display */}
             <div className="md:col-span-2 flex flex-col h-full">
-              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
+              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200 shadow-sm">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-medium text-gray-800">Virtual Card</h3>
-                  <span className="text-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
+                  <h3 className="font-semibold text-gray-800">Virtual Card</h3>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
                 </div>
                 <div className="w-full max-w-md mx-auto">
-                  <div className="relative transition-all duration-200 transform hover:scale-105">
+                  <div className="relative transition-transform duration-200 transform hover:scale-105">
                     <VirtualCard />
                   </div>
                 </div>
@@ -303,22 +481,70 @@ const Cards = () => {
               />
             </div>
 
-            {/* Right Side: Additional Content */}
+            {/* Right Side: Recent Activity */}
             <div className="flex flex-col space-y-4">
-              <Card className="p-4">
+              <Card className="p-4 border border-gray-200 shadow-sm">
                 <CardHeader>
-                  <CardTitle>Online Security</CardTitle>
+                  <CardTitle className="text-gray-800 font-semibold">Recent Activity</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">Your virtual card ensures secure online transactions with dynamic CVV.</p>
-                </CardContent>
-              </Card>
-              <Card className="p-4">
-                <CardHeader>
-                  <CardTitle>Instant Issuance</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">Get your virtual card instantly and start using it for online payments.</p>
+                  <ul className="space-y-4">
+                    {/* Transaction 1 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
+                          <ShoppingCart size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $120.00</span>
+                    </li>
+
+                    {/* Transaction 2 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-green-50 text-green-600 rounded-full">
+                          <Film size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $15.99</span>
+                    </li>
+
+                    {/* Transaction 3 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-yellow-50 text-yellow-600 rounded-full">
+                          <Coffee size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $8.50</span>
+                    </li>
+
+                    {/* Transaction 4 */}
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-red-50 text-red-600 rounded-full">
+                          <Plane size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $500.00</span>
+                    </li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
