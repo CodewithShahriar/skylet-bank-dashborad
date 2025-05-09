@@ -92,9 +92,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('skylet_user');
     navigate('/login');
     toast({
-      title: "লগআউট সফল হয়েছে",
-      description: "আপনি সফলভাবে লগআউট করেছেন",
-    });
+      title: "Logout Successful",
+      description: "You have successfully logged out.",
+        });
   };
 
   return (
