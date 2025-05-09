@@ -1,0 +1,166 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 221.2 83.2% 53.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Card styling components */
+  .bank-card {
+    @apply relative overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg w-full;
+    min-height: 200px;
+  }
+
+  .bank-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full opacity-20;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  /* Button components */
+  .skylet-button {
+    @apply rounded-lg px-4 py-2 text-white font-medium shadow-md transition-all duration-200 ease-in-out;
+    @apply hover:shadow-lg active:translate-y-0.5 active:shadow-sm;
+  }
+  
+  .skylet-button-primary {
+    @apply skylet-button bg-blue-600 hover:bg-blue-700;
+  }
+  
+  .skylet-button-secondary {
+    @apply skylet-button bg-green-500 hover:bg-green-600;
+  }
+  
+  .skylet-button-outline {
+    @apply skylet-button bg-transparent border border-blue-500 text-blue-500;
+    @apply hover:bg-blue-50;
+  }
+  
+  /* Dashboard components */
+  .dashboard-panel {
+    @apply bg-white rounded-xl shadow-sm p-5 overflow-hidden border border-gray-200;
+  }
+
+  .transaction-item {
+    @apply flex items-center justify-between p-3 border-b border-gray-200 last:border-0;
+    @apply hover:bg-gray-50 transition-colors duration-150;
+  }
+  
+  /* Loading/shimmer effect */
+  .shimmer {
+    @apply relative overflow-hidden bg-gray-200 rounded-md before:absolute before:inset-0;
+    @apply before:bg-gradient-to-r before:from-transparent before:via-gray-100 before:to-transparent;
+    @apply before:animate-shimmer;
+  }
+
+  /* Form controls */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+  }
+
+  /* Text gradients */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-transparent bg-clip-text;
+  }
+  
+  /* Card designs */
+  .debit-card {
+    @apply relative overflow-hidden text-white p-5 rounded-xl shadow-lg;
+    background: linear-gradient(135deg, #1a44c2 0%, #2c7bd9 50%, #0ea4e9 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  .credit-card {
+    @apply relative overflow-hidden text-white p-5 rounded-xl shadow-lg;
+    background: linear-gradient(135deg, #ff3a7c 0%, #a02cfa 60%, #5d29db 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  .card-chip {
+    @apply h-6 w-9 bg-yellow-200/80 rounded-md grid grid-cols-3 grid-rows-3 gap-px p-px;
+  }
+  
+  .card-network-logo {
+    @apply absolute bottom-4 right-4 opacity-90;
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  /* Animation for card gradients */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+  
+  /* Sidebar styling */
+  .sidebar-item {
+    @apply flex items-center px-4 py-3 rounded-lg transition-colors duration-150;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-blue-50 text-blue-600 font-medium;
+  }
+  
+  .sidebar-item-inactive {
+    @apply text-gray-600 hover:bg-gray-50;
+  }
+}
