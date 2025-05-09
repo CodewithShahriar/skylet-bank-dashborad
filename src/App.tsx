@@ -17,6 +17,7 @@ import History from "@/pages/History";
 import Reports from "@/pages/Reports";
 import Transfer from "@/pages/Transfer";
 import Withdraw from "@/pages/Withdraw";
+import MFSTransfer from '@/pages/MFSTransfer';
 import Support from "@/pages/Support";
 import Settings from "@/pages/Settings";
 import MobileTopup from "@/pages/MobileTopup";
@@ -46,6 +47,7 @@ const App = () => (
                 <Route path="support" element={<Support />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="topup" element={<MobileTopup />} />
+                <Route path="mfs-transfer" element={<MFSTransfer />} />
                 <Route path="withdraw" element={<Withdraw />} />
 
               </Route>
