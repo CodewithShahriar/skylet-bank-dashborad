@@ -19,8 +19,10 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      <h1 className="text-2xl font-bold text-gray-800 flex items-center justify-between">
-        <span>SKYLET BANK LTD Dashboard</span>
+      <h1 className="text-2xl font-bold flex items-center justify-between">
+        <span className="bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 text-transparent bg-clip-text">
+          SKYLET BANK LTD Dashboard
+        </span>
         <span className="text-lg font-bold text-gray-600 flex items-center">
           Total Balance: {totalBalance}
           <span className="ml-2 h-3 w-3 bg-green-700 rounded-full animate-ping"></span>
