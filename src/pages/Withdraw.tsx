@@ -36,10 +36,10 @@ const Withdraw = () => {
       // Add transaction
       addTransaction({
         amount: amountValue,
-        type: 'withdraw',
+        type: 'withdrawal',
         description: description || `Withdrawal to ${accountNo}`,
         receiver: accountNo,
-        receiverBank: account?.bankName || 'Skylet Bank',
+        receiverBank: 'Skylet Bank',
       });
 
       // Update balance
