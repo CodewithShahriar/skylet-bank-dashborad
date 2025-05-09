@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
 import { Menu } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface TopBarProps {
   onMenuClick: () => void;
@@ -17,6 +18,7 @@ interface TopBarProps {
 
 const TopBar = ({ onMenuClick, isSidebarOpen }: TopBarProps) => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <header className="bg-gradient-to-r from-blue-500/70 via-blue-400/50 to-lime-500/70 border-b border-gray-200 py-2 px-4 flex items-center justify-between backdrop-blur-md">
@@ -54,7 +56,18 @@ const TopBar = ({ onMenuClick, isSidebarOpen }: TopBarProps) => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56 bg-white border border-gray-200">
-            <DropdownMenuItem className="cursor-pointer" onClick={() => logout()}>
+            {/* Settings Option */}
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => navigate('/dashboard/settings')}
+            >
+              Settings
+            </DropdownMenuItem>
+            {/* Logout Option */}
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => logout()}
+            >
               Logout
             </DropdownMenuItem>
           </DropdownMenuContent>
