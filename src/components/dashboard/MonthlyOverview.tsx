@@ -1,16 +1,12 @@
-
 import { useMemo } from 'react';
 import { useBankData } from '@/contexts/BankDataContext';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  LineChart,
-  Line,
   ResponsiveContainer,
   CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   BarChart,
   Bar,
   Cell,
@@ -29,37 +25,33 @@ const formatCurrency = (amount: number): string => {
 const MonthlyOverview = () => {
   const { transactions, getCurrentAccount } = useBankData();
   const account = getCurrentAccount();
-  
+
   // Generate monthly data
   const monthlyData = useMemo(() => {
-    // Initial weekly data template
     const initialTemplate = [
-      { name: 'Week 1', income: 0, expense: 0 },
-      { name: 'Week 2', income: 0, expense: 0 },
-      { name: 'Week 3', income: 0, expense: 0 },
-      { name: 'Week 4', income: 0, expense: 0 },
+      { name: 'Week 1', income: 1000, expense: 3000 },
+      { name: 'Week 2', income: 5003, expense: 4000 },
+      { name: 'Week 3', income: 2500, expense: 2000 },
+      { name: 'Week 4', income: 5000, expense: 2000 },
     ];
-    
-    // Clone the template for actual data
-    let weeklyData = JSON.parse(JSON.stringify(initialTemplate));
-    
+
+    const weeklyData = JSON.parse(JSON.stringify(initialTemplate));
+
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
-    
-    // Filter transactions for current month and group by week
-    transactions.forEach(tx => {
+
+    transactions.forEach((tx) => {
       const txDate = new Date(tx.date);
       if (txDate.getMonth() === currentMonth && txDate.getFullYear() === currentYear) {
-        // Determine which week of the month (approximately)
         const dayOfMonth = txDate.getDate();
         let weekIndex = 0;
-        
+
         if (dayOfMonth <= 7) weekIndex = 0;
         else if (dayOfMonth <= 14) weekIndex = 1;
         else if (dayOfMonth <= 21) weekIndex = 2;
         else weekIndex = 3;
-        
+
         if (tx.type === 'received') {
           weeklyData[weekIndex].income += tx.amount;
         } else if (tx.type === 'sent' || tx.type === 'payment') {
@@ -67,41 +59,18 @@ const MonthlyOverview = () => {
         }
       }
     });
-    
-    // If we don't have enough real data, fill with realistic looking data
-    const totalIncome = weeklyData.reduce((sum, week) => sum + week.income, 0);
-    const totalExpense = weeklyData.reduce((sum, week) => sum + week.expense, 0);
-    
-    if (totalIncome < 1000) {
-      weeklyData = weeklyData.map(week => ({
-        ...week,
-        income: week.income || Math.floor(Math.random() * 800) + 400
-      }));
-    }
-    
-    if (totalExpense < 500) {
-      weeklyData = weeklyData.map(week => ({
-        ...week,
-        expense: week.expense || Math.floor(Math.random() * 500) + 200
-      }));
-    }
-    
-    // Calculate the totals
-    const updatedTotalIncome = weeklyData.reduce((sum, week) => sum + week.income, 0);
-    const updatedTotalExpense = weeklyData.reduce((sum, week) => sum + week.expense, 0);
-    
+
     return {
       weeklyData,
-      totalIncome: updatedTotalIncome,
-      totalExpense: updatedTotalExpense
+      totalIncome: weeklyData.reduce((sum, week) => sum + week.income, 0),
+      totalExpense: weeklyData.reduce((sum, week) => sum + week.expense, 0),
     };
   }, [transactions]);
-  
+
   const currentMonth = new Date().toLocaleString('default', { month: 'long' });
   const currentYear = new Date().getFullYear();
   const currencySymbol = account?.currency || '$';
-  
-  // Custom tooltip for the charts
+
   const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
     if (active && payload && payload.length) {
       return (
@@ -133,7 +102,7 @@ const MonthlyOverview = () => {
               </div>
               <span className="text-sm text-gray-500">{currentMonth} {currentYear}</span>
             </div>
-            
+
             <div className="h-48 mt-2">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
@@ -155,7 +124,7 @@ const MonthlyOverview = () => {
           </div>
         </CardContent>
       </Card>
-      
+
       {/* Total Expenses Card */}
       <Card className="border border-gray-200 bg-white shadow-sm">
         <CardContent className="p-5">
@@ -169,7 +138,7 @@ const MonthlyOverview = () => {
               </div>
               <span className="text-sm text-gray-500">{currentMonth} {currentYear}</span>
             </div>
-            
+
             <div className="h-48 mt-2">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
