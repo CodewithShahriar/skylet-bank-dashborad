@@ -109,6 +109,10 @@ export default {
         shimmer: {
           "100%": { transform: "translateX(100%)" },
         },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -118,6 +122,7 @@ export default {
         "slide-in": "slide-in 0.3s ease-out",
         "slide-right": "slide-right 0.3s ease-out",
         shimmer: "shimmer 2s infinite",
+        blink: "blink 1s infinite",
       },
       backgroundImage: {
         "card-gradient": "linear-gradient(135deg, #1EAEDB 0%, #33C3F0 50%, #4CD964 100%)",

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -37,16 +36,17 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-skylet-blue via-skylet-light-blue to-skylet-green">
+        <div className="text-center mb-3">
+          {/* Updated Skylet Bank Gradient */}
+          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-green-500 to-purple-600">
             Skylet Bank
           </h1>
           <p className="text-gray-400 mt-2">Online Banking Portal</p>
         </div>
         
-        <Card className="border-t-4 border-t-skylet-blue shadow-lg animate-fade-in bg-card/95 backdrop-blur border-border/30">
+        <Card className="border-t-4 border-t-blue-500 shadow-lg animate-fade-in bg-card/95 backdrop-blur border-border/30">
           <CardHeader>
-            <CardTitle className="text-2xl text-center text-foreground">Welcome Back</CardTitle>
+            <CardTitle className="text-xl text-center text-foreground">Welcome Back</CardTitle>
             <CardDescription className="text-center">
               Please login to your account
             </CardDescription>
@@ -71,7 +71,7 @@ const Login = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="password" className="text-foreground">Password</Label>
-                  <a href="#" className="text-xs text-skylet-blue hover:underline">
+                  <a href="#" className="text-xs text-blue-500 hover:underline">
                     Forgot password?
                   </a>
                 </div>
@@ -88,10 +88,11 @@ const Login = () => {
               </div>
               
               <div className="pt-2">
+                {/* Updated Login Button Gradient */}
                 <Button 
                   type="submit" 
                   className={cn(
-                    "w-full skylet-button-primary",
+                    "w-full bg-gradient-to-r from-blue-400 via-green-600 to-purple-500 text-white font-medium py-2 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300",
                     isSubmitting && "opacity-70 cursor-not-allowed"
                   )}
                   disabled={isSubmitting}
@@ -109,13 +110,13 @@ const Login = () => {
                 className="w-full opacity-50 cursor-not-allowed border-border/50 hover:bg-muted/20"
                 disabled
               >
-                Registration
+                Click here to open a new account
               </Button>
             </div>
             
-            <div className="text-xs text-center text-muted-foreground">
+            {/* <div className="text-xs text-center text-muted-foreground">
               Test credentials: testuser / 123456
-            </div>
+            </div> */}
           </CardFooter>
         </Card>
         
