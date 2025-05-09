@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from 'react';
 import { useBankData } from '@/contexts/BankDataContext';
 import { Copy, CreditCard as CreditCardIcon, CheckCircle2 } from 'lucide-react';
@@ -32,7 +31,8 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
   const account = getCurrentAccount();
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
-  
+  const [showBalance, setShowBalance] = useState(false); // State to toggle balance visibility
+
   const formattedBalance = useMemo(() => {
     if (!account) return '0.00';
     return new Intl.NumberFormat('en-US', {
@@ -62,57 +62,34 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const toggleBalance = () => {
+    setShowBalance(!showBalance); // Toggle balance visibility
+  };
+
   return (
-    <div className={cn(
-      "relative overflow-hidden text-white p-6 rounded-xl shadow-lg w-full h-52",
-      className
-    )}>
+    <div 
+      className={cn(
+        "relative overflow-hidden text-white p-6 rounded-xl shadow-lg w-full h-52 cursor-pointer",
+        className
+      )}
+      onClick={toggleBalance} // Add click handler to toggle balance
+    >
+      {/* Blur effect applied to the entire card */}
+      {showBalance && (
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-md z-10"></div>
+      )}
+
       {cardType === 'debit' ? (
         <div className="absolute inset-0 bg-gradient-to-br from-blue-800 via-purple-600 to-blue-700">
-          {/* World Map Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-              <path d="M200,100 Q400,50 600,100 T1000,100 T1400,100 T1800,100 T2200,100 V500 H0 V100 Q200,150 400,100 T800,100 T1200,100 T1600,100 T2000,100" fill="white" fillOpacity="0.05" />
-              <path d="M100,200 Q300,150 500,200 T900,200 T1300,200 T1700,200 T2100,200 V500 H0 V200 Q100,250 300,200 T700,200 T1100,200 T1500,200 T1900,200" fill="white" fillOpacity="0.05" />
-              <circle cx="200" cy="150" r="100" fill="white" fillOpacity="0.03" />
-              <circle cx="500" cy="250" r="120" fill="white" fillOpacity="0.04" />
-              <circle cx="700" cy="350" r="80" fill="white" fillOpacity="0.03" />
-            </svg>
-          </div>
+          {/* Background */}
         </div>
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-red-800 via-pink-700 to-red-700">
-          {/* World Map Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-              <path d="M200,100 Q400,50 600,100 T1000,100 T1400,100 T1800,100 T2200,100 V500 H0 V100 Q200,150 400,100 T800,100 T1200,100 T1600,100 T2000,100" fill="white" fillOpacity="0.05" />
-              <path d="M100,200 Q300,150 500,200 T900,200 T1300,200 T1700,200 T2100,200 V500 H0 V200 Q100,250 300,200 T700,200 T1100,200 T1500,200 T1900,200" fill="white" fillOpacity="0.05" />
-              <circle cx="200" cy="150" r="100" fill="white" fillOpacity="0.03" />
-              <circle cx="500" cy="250" r="120" fill="white" fillOpacity="0.04" />
-              <circle cx="700" cy="350" r="80" fill="white" fillOpacity="0.03" />
-            </svg>
-          </div>
+          {/* Background */}
         </div>
       )}
       
-      {/* Card Background Elements - Geometric Patterns */}
-      <div className="absolute inset-0 opacity-5">
-        {Array.from({ length: cardType === 'debit' ? 3 : 5 }).map((_, i) => (
-          <div 
-            key={i} 
-            className="absolute rounded-full bg-white" 
-            style={{
-              width: `${Math.random() * 100 + 50}px`, 
-              height: `${Math.random() * 100 + 50}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.1
-            }}
-          />
-        ))}
-      </div>
-      
-      <div className="flex flex-col h-full justify-between relative z-10">
+      <div className={cn("flex flex-col h-full justify-between relative", showBalance ? "z-0" : "z-10")}>
         <div className="flex justify-between items-center">
           <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
             Skylet Bank
@@ -137,12 +114,14 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
         </div>
         
         <div className="my-4">
-          {/* <p className="text-white/70 mb-1 text-xs">Card number</p> */}
           <div className="flex items-center">
             <div className="font-mono text-lg font-bold tracking-wider">{cardNumber}</div>
             <button 
               className="ml-2 text-white/70 hover:text-white transition-colors"
-              onClick={copyAccountNumber}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent triggering card click
+                copyAccountNumber();
+              }}
             >
               {copied ? <CheckCircle2 size={14} /> : <Copy size={14} />}
             </button>
@@ -151,7 +130,6 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
         
         <div className="flex justify-between items-end">
           <div>
-            {/* <p className="text-white/70 mb-1 text-xs">Card holder</p> */}
             <p className="font-medium tracking-wide">{account.name}</p>
           </div>
           
@@ -160,12 +138,17 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
             <p className="font-medium">{expiryDate}</p>
           </div>
         </div>
-        
-        <div className="absolute bottom-2 right-6 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-lg">
-          <span className="text-xs font-semibold">Balance</span>
-          <p className="text-lg font-bold">${formattedBalance}</p>
-        </div>
       </div>
+
+      {/* Balance section */}
+      {showBalance && (
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg">
+            <span className="text-xs font-semibold text-gray-700">Balance</span>
+            <p className="text-lg font-bold text-gray-900">${formattedBalance}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
