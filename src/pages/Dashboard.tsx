@@ -59,7 +59,9 @@ const Dashboard = () => {
               >
                 Transfer Money
               </button>
-              <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
+              <button 
+              onClick={() => navigate('/dashboard/withdraw')}
+               className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
                 Withdraw
               </button>
               <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
