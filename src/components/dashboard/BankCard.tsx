@@ -1,4 +1,3 @@
-
 import { useMemo } from 'react';
 import { useBankData } from '@/contexts/BankDataContext';
 import { Copy } from 'lucide-react';
@@ -49,10 +48,24 @@ const BankCard = () => {
     <div className="relative overflow-hidden text-white p-6 rounded-xl shadow-lg w-full">
       {/* Background with world map pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400">
-        <div className="absolute inset-0 opacity-10">
-          <svg width="100%" height="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-            <path d="M200,100 Q400,50 600,100 T1000,100 T1400,100 T1800,100 T2200,100 V500 H0 V100 Q200,150 400,100 T800,100 T1200,100 T1600,100 T2000,100" fill="white" fillOpacity="0.05" />
-            <path d="M100,200 Q300,150 500,200 T900,200 T1300,200 T1700,200 T2100,200 V500 H0 V200 Q100,250 300,200 T700,200 T1100,200 T1500,200 T1900,200" fill="white" fillOpacity="0.05" />
+        <div className="absolute inset-0 opacity-10 z-0">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 800 500"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M200,100 Q400,50 600,100 T1000,100 T1400,100 T1800,100 T2200,100 V500 H0 V100 Q200,150 400,100 T800,100 T1200,100 T1600,100 T2000,100"
+              fill="white"
+              fillOpacity="0.05"
+            />
+            <path
+              d="M100,200 Q300,150 500,200 T900,200 T1300,200 T1700,200 T2100,200 V500 H0 V200 Q100,250 300,200 T700,200 T1100,200 T1500,200 T1900,200"
+              fill="white"
+              fillOpacity="0.05"
+            />
             <circle cx="200" cy="150" r="100" fill="white" fillOpacity="0.03" />
             <circle cx="500" cy="250" r="120" fill="white" fillOpacity="0.04" />
             <circle cx="700" cy="350" r="80" fill="white" fillOpacity="0.03" />

@@ -143,9 +143,9 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
       {/* Balance section */}
       {showBalance && (
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg">
-            <span className="text-xs font-semibold text-gray-700">Balance</span>
-            <p className="text-lg font-bold text-gray-900">${formattedBalance}</p>
+          <div className="px-6 py-4  backdrop-blur-sm rounded-lg shadow-lg">
+            <span className="text-sm font-semibold text-white-700">Balance</span>
+            <p className="text-2xl font-bold text-white-900">${formattedBalance}</p>
           </div>
         </div>
       )}
