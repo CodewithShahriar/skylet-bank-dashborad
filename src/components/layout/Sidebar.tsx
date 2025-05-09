@@ -30,9 +30,9 @@ const NavItem = ({ to, icon, label, isActive }: NavItemProps) => (
   <Link
     to={to}
     className={cn(
-      "flex items-center px-4 py-3 rounded-lg transition-colors duration-150",
+      "flex items-center px-4 py-3 font-b rounded-lg transition-colors duration-150",
       isActive 
-        ? "bg-blue-50 text-blue-600 font-medium" 
+        ? "bg-blue-50 text-blue-800 font-medium" 
         : "text-gray-900 hover:bg-gray-50"
     )}
   >
@@ -63,7 +63,7 @@ const Sidebar = ({ isOpen, onClose, isMobile }: SidebarProps) => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 z-30 h-screen bg-gradient-to-br from-blue-500 via-green-400 to-purple-000 border-r border-gray-200 shadow-sm transition-all duration-300 ease-in-out",
+          "fixed top-0 left-0 z-30 h-screen bg-gradient-to-br from-blue-600 via-blue-300 to-green-500 shadow-sm  transition-all duration-300 ease-in-out",
           isOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full", 
           isMobile ? "z-50" : "",
         )}
@@ -71,7 +71,7 @@ const Sidebar = ({ isOpen, onClose, isMobile }: SidebarProps) => {
         {/* Logo and close button */}
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
           <div className="flex items-center">
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-transparent bg-clip-text">
+            <span className="text-xl font-bold text-white">
               SKYLET BANK LTD
             </span>
           </div>
