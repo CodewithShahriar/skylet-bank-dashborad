@@ -90,7 +90,7 @@ const Settings = () => {
                     <Input 
                       id="email"
                       type="email"
-                      value="user@example.com"
+                      value="codewith.shahriar1@gmail.com"
                       disabled
                       className="bg-gray-100"
                     />
