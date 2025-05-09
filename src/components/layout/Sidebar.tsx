@@ -72,7 +72,7 @@ const Sidebar = ({ isOpen, onClose, isMobile }: SidebarProps) => {
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
           <div className="flex items-center">
             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-transparent bg-clip-text">
-              Skylet Bank
+              SKYLET BANK LTD
             </span>
           </div>
           {isMobile && (
