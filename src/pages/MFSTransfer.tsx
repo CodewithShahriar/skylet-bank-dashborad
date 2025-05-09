@@ -44,10 +44,13 @@ const MFSTransfer = () => {
       {/* MFS Options */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         {MFS_OPTIONS.map((mfs) => (
-          <Button
+          <button
             key={mfs.name}
-            variant={selectedMFS === mfs.name ? 'default' : 'outline'}
-            className="flex items-center justify-center py-4"
+            className={`flex items-center justify-center py-4 rounded-lg shadow-md transition-transform duration-300 ${
+              selectedMFS === mfs.name
+                ? 'bg-gray-300' // Light gray for selected
+                : 'bg-white hover:scale-105 hover:shadow-lg' // Hover effect for unselected
+            }`}
             onClick={() => setSelectedMFS(mfs.name)}
           >
             {mfs.img && (
@@ -57,7 +60,7 @@ const MFSTransfer = () => {
                 className="h-12 w-auto object-contain"
               />
             )}
-          </Button>
+          </button>
         ))}
       </div>
 
