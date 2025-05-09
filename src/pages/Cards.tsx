@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -28,144 +27,21 @@ const CardContactless = () => (
 
 const DebitCard = () => (
   <div className="relative overflow-hidden text-white p-5 rounded-xl shadow-lg w-full">
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-800 via-purple-600 to-blue-700">
-      {/* World Map Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg width="100%" height="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-          <path d="M200,100 Q400,50 600,100 T1000,100 T1400,100 T1800,100 T2200,100 V500 H0 V100 Q200,150 400,100 T800,100 T1200,100 T1600,100 T2000,100" fill="white" fillOpacity="0.05" />
-          <path d="M100,200 Q300,150 500,200 T900,200 T1300,200 T1700,200 T2100,200 V500 H0 V200 Q100,250 300,200 T700,200 T1100,200 T1500,200 T1900,200" fill="white" fillOpacity="0.05" />
-          <circle cx="200" cy="150" r="100" fill="white" fillOpacity="0.03" />
-          <circle cx="500" cy="250" r="120" fill="white" fillOpacity="0.04" />
-          <circle cx="700" cy="350" r="80" fill="white" fillOpacity="0.03" />
-        </svg>
-      </div>
-    </div>
-    
-    {/* Geometric Patterns */}
-    <div className="absolute inset-0">
-      {Array.from({ length: 3 }).map((_, i) => (
-        <div 
-          key={i} 
-          className="absolute bg-white rounded-full" 
-          style={{
-            width: `${Math.random() * 100 + 50}px`, 
-            height: `${Math.random() * 100 + 50}px`,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            opacity: 0.05
-          }}
-        />
-      ))}
-    </div>
-    
-    <div className="relative z-10 flex flex-col h-full">
-      <div className="flex justify-between items-center">
-        <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-          Skylet Bank
-        </span>
-        <div className="text-white text-xl font-extrabold tracking-tighter">
-          <span className="italic">VISA</span>
-        </div>
-      </div>
-      
-      <div className="flex items-center mt-2">
-        <CardChip />
-        <CardContactless />
-      </div>
-      
-      <div className="mt-8">
-        <p className="text-white/70 mb-1 text-xs">Card number</p>
-        <div className="font-mono text-lg font-bold tracking-wider">•••• •••• •••• 9703</div>
-      </div>
-      
-      <div className="mt-4 flex justify-between">
-        <div>
-          {/* <p className="text-white/70 text-xs">Card holder</p> */}
-          <h3 className="text-md font-bold">Abid Shahriar</h3>
-        </div>
-        <div className="text-right">
-          <p className="text-white/70 mb-1 text-xs">Expires</p>
-          <p className="font-medium">12/34</p>
-        </div>
-      </div>
-      
-      <div className="absolute  bottom-0 right-14 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-lg">
-        <span className="text-xs font-semibold">Balance</span>
-        <p className="text-lg font-bold">$11,092.37</p>
-      </div>
-    </div>
+    <img
+      src="https://i.ibb.co.com/Z6tBMxJR/Whats-App-Image-2025-05-09-at-19-39-46-13ba0ebe.jpg"
+      alt="Debit Card"
+      className="w-full h-full object-cover rounded-xl"
+    />
   </div>
 );
 
 const CreditCardComponent = () => (
   <div className="relative overflow-hidden text-white p-5 rounded-xl shadow-lg w-full">
-    <div className="absolute inset-0 bg-gradient-to-br from-red-800 via-pink-700 to-red-700">
-      {/* World Map Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg width="100%" height="100%" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-          <path d="M200,100 Q400,50 600,100 T1000,100 T1400,100 T1800,100 T2200,100 V500 H0 V100 Q200,150 400,100 T800,100 T1200,100 T1600,100 T2000,100" fill="white" fillOpacity="0.05" />
-          <path d="M100,200 Q300,150 500,200 T900,200 T1300,200 T1700,200 T2100,200 V500 H0 V200 Q100,250 300,200 T700,200 T1100,200 T1500,200 T1900,200" fill="white" fillOpacity="0.05" />
-          <circle cx="200" cy="150" r="100" fill="white" fillOpacity="0.03" />
-          <circle cx="500" cy="250" r="120" fill="white" fillOpacity="0.04" />
-          <circle cx="700" cy="350" r="80" fill="white" fillOpacity="0.03" />
-        </svg>
-      </div>
-    </div>
-    
-    {/* Geometric Patterns */}
-    <div className="absolute inset-0">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <div 
-          key={i} 
-          className="absolute rounded-full" 
-          style={{
-            width: `${Math.random() * 100 + 50}px`, 
-            height: `${Math.random() * 100 + 50}px`,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            background: `rgba(255, 255, 255, ${Math.random() * 0.05})`,
-          }}
-        />
-      ))}
-    </div>
-    
-    <div className="relative z-10 flex flex-col h-full">
-      <div className="flex justify-between items-center">
-        <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-          Skylet Bank
-        </span>
-        <div className="flex">
-          <div className="h-6 w-6 bg-red-500 rounded-full opacity-90 -mr-2"></div>
-          <div className="h-6 w-6 bg-yellow-500 rounded-full opacity-90"></div>
-        </div>
-      </div>
-      
-      <div className="flex items-center mt-2">
-        <CardChip />
-        <CardContactless />
-      </div>
-      
-      <div className="mt-8">
-        <p className="text-white/70 mb-1 text-xs">Card number</p>
-        <div className="font-mono text-lg font-bold tracking-wider">•••• •••• •••• 4365</div>
-      </div>
-      
-      <div className="mt-4 flex justify-between">
-        <div>
-          <p className="text-white/70 text-xs">Card holder</p>
-          <h3 className="text-md font-bold">JOHN SMITH</h3>
-        </div>
-        <div className="text-right">
-          <p className="text-white/70 mb-1 text-xs">Expires</p>
-          <p className="font-medium">06/32</p>
-        </div>
-      </div>
-      
-      <div className="absolute bottom-2 right-5 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-lg">
-        <span className="text-xs font-semibold">Balance</span>
-        <p className="text-lg font-bold">$7,561.47</p>
-      </div>
-    </div>
+    <img
+      src="https://i.ibb.co.com/kVbjXQrh/Whats-App-Image-2025-05-09-at-19-39-45-6ae55998.jpg"
+      alt="Credit Card"
+      className="w-full h-full object-cover rounded-xl"
+    />
   </div>
 );
 
