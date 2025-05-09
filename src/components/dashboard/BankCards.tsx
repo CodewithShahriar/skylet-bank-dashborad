@@ -10,15 +10,16 @@ const Card = ({ imageUrl, cardType }: CardProps) => {
   const { getCurrentAccount } = useBankData();
   const account = getCurrentAccount();
 
-  if (!account) return null;
-
   const formattedBalance = useMemo(() => {
+    if (!account) return '0.00';
     const balance = cardType === 'credit' ? account.balance * 0.7 : account.balance;
     return new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }).format(balance);
   }, [account, cardType]);
+
+  if (!account) return null;
 
   return (
     <div className="relative w-full h-57 rounded-xl overflow-hidden shadow-md group">
