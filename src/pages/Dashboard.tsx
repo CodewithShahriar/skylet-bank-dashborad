@@ -13,10 +13,10 @@ const Dashboard = () => {
   const totalBalance = account?.balance
     ? new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'USD',
+        currency: 'BDT', // Use BDT for Bangladeshi Taka
         minimumFractionDigits: 2,
       }).format(account.balance)
-    : '$0.00';
+    : '৳0.00'; // Default value with BDT sign
 
   return (
     <div
@@ -54,14 +54,14 @@ const Dashboard = () => {
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => navigate('/dashboard/transfer')}
- // Redirect to Transfer page
                 className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
               >
                 Transfer Money
               </button>
               <button 
-              onClick={() => navigate('/dashboard/withdraw')}
-               className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
+                onClick={() => navigate('/dashboard/withdraw')}
+                className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
+              >
                 Withdraw
               </button>
               <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
