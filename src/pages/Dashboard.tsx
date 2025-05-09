@@ -18,46 +18,53 @@ const Dashboard = () => {
     : '$0.00';
 
   return (
-    <div className="space-y-6 animate-fade-in">
-      <h1 className="text-2xl font-bold flex items-center justify-between">
-        <span className="bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 text-transparent bg-clip-text">
-          SKYLET BANK LTD Dashboard
-        </span>
-        <span className="text-lg font-bold text-gray-600 flex items-center">
-          Total Balance: {totalBalance}
-          <span className="ml-2 h-3 w-3 bg-green-700 rounded-full animate-ping"></span>
-        </span>
-      </h1>
+    <div
+      className="min-h-screen p-6"
+      style={{
+        background: 'linear-gradient(to bottom right, #f0f4ff, #e0f7fa, #f3e5f5)',
+      }}
+    >
+      <div className="space-y-6 animate-fade-in">
+        <h1 className="text-2xl font-bold flex items-center justify-between">
+          <span className="bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 text-transparent bg-clip-text">
+            SKYLET BANK LTD Dashboard
+          </span>
+          <span className="text-lg font-bold text-gray-600 flex items-center">
+            Total Balance: {totalBalance}
+            <span className="ml-2 h-3 w-3 bg-green-700 rounded-full animate-ping"></span>
+          </span>
+        </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <div className="mb-6">
-            <BankCards />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <div className="mb-6">
+              <BankCards />
+            </div>
+            
+            <div>
+              <h2 className="text-xl font-medium mb-4 text-gray-700">Monthly Overview</h2>
+              <MonthlyOverview />
+            </div>
+            
+            <div className="mt-6">
+              <h2 className="text-xl font-medium mb-4 text-gray-700">Quick Access</h2>
+              <QuickActions />
+            </div>
           </div>
           
           <div>
-            <h2 className="text-xl font-medium mb-4 text-gray-700">Monthly Overview</h2>
-            <MonthlyOverview />
-          </div>
-          
-          <div className="mt-6">
-            <h2 className="text-xl font-medium mb-4 text-gray-700">Quick Access</h2>
-            <QuickActions />
-          </div>
-        </div>
-        
-        <div>
-          <PromotionBanner />
-          
-          <div className="bg-white border border-gray-200 p-5 rounded-lg shadow-sm mt-6">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-medium text-gray-700">My Transactions</h2>
-              <a href="/dashboard/history" className="text-sm text-blue-600 hover:underline">
-                View All
-              </a>
-            </div>
+            <PromotionBanner />
             
-            <TransactionsList limit={5} />
+            <div className="bg-white border border-gray-200 p-5 rounded-lg shadow-sm mt-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-medium text-gray-700">My Transactions</h2>
+                <a href="/dashboard/history" className="text-sm text-blue-600 hover:underline">
+                  View All
+                </a>
+              </div>
+              
+              <TransactionsList limit={5} />
+            </div>
           </div>
         </div>
       </div>
