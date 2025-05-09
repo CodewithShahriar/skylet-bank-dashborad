@@ -71,9 +71,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       localStorage.setItem('skylet_user', JSON.stringify(TEST_USER));
       setIsLoading(false);
       toast({
-        title: "লগইন সফল হয়েছে",
-        description: "আপনি সফলভাবে লগইন করেছেন",
-      });
+        title: "Login Successful",
+        description: "You have successfully logged in.",
+            });
       return true;
     }
     
