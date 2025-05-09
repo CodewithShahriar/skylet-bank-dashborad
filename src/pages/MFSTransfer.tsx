@@ -4,13 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useNavigate } from 'react-router-dom';
-import { Banknote, Rocket, DollarSign, CreditCard } from 'lucide-react'; // Replace with actual icons
 
 const MFS_OPTIONS = [
-  { name: 'bKash', icon: <Banknote className="w-6 h-6" /> },
-  { name: 'Rocket', icon: <Rocket className="w-6 h-6" /> },
-  { name: 'Nagad', icon: <DollarSign className="w-6 h-6" /> },
-  { name: 'Upay', icon: <CreditCard className="w-6 h-6" /> },
+  {
+    name: 'bKash',
+    img: 'https://freelogopng.com/images/all_img/1656227518bkash-logo-png.png', // bKash logo
+  },
+  { name: 'Rocket', icon: <span>Rocket</span> }, // Placeholder for other options
+  { name: 'Nagad', icon: <span>Nagad</span> },
+  { name: 'Upay', icon: <span>Upay</span> },
 ];
 
 const MFSTransfer = () => {
@@ -22,8 +24,7 @@ const MFSTransfer = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add submission logic here (validate & process)
-    alert(`Transfer to ${selectedMFS} - ${accountNumber} (${accountName}) - $${amount}`);
+    alert(`Transfer to ${selectedMFS} - ${accountNumber} (${accountName}) - ৳${amount}`);
     navigate('/dashboard');
   };
 
@@ -36,11 +37,18 @@ const MFSTransfer = () => {
           <Button
             key={mfs.name}
             variant={selectedMFS === mfs.name ? 'default' : 'outline'}
-            className="flex flex-col items-center py-4"
+            className="flex items-center justify-center py-4"
             onClick={() => setSelectedMFS(mfs.name)}
           >
-            {mfs.icon}
-            <span className="mt-2">{mfs.name}</span>
+            {mfs.img ? (
+              <img
+                src={mfs.img}
+                alt={mfs.name}
+                className="h-12 w-auto object-contain"
+              />
+            ) : (
+              mfs.icon
+            )}
           </Button>
         ))}
       </div>
