@@ -10,9 +10,18 @@ const MFS_OPTIONS = [
     name: 'bKash',
     img: 'https://freelogopng.com/images/all_img/1656227518bkash-logo-png.png', // bKash logo
   },
-  { name: 'Rocket', icon: <span>Rocket</span> }, // Placeholder for other options
-  { name: 'Nagad', icon: <span>Nagad</span> },
-  { name: 'Upay', icon: <span>Upay</span> },
+  {
+    name: 'Rocket',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Rocket_mobile_banking_logo.svg/640px-Rocket_mobile_banking_logo.svg.png', // Rocket logo
+  },
+  {
+    name: 'Nagad',
+    img: 'https://freelogopng.com/images/all_img/1683082228nagad-transparent-logo.png', // Nagad logo
+  },
+  {
+    name: 'Upay',
+    img: 'https://crm.easytrax.com.bd/images/coa_logos/upay_logo.png', // Upay logo
+  },
 ];
 
 const MFSTransfer = () => {
@@ -32,6 +41,7 @@ const MFSTransfer = () => {
     <div className="max-w-3xl mx-auto p-4 animate-fade-in">
       <h1 className="text-2xl font-bold mb-6">MFS Transfer</h1>
 
+      {/* MFS Options */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         {MFS_OPTIONS.map((mfs) => (
           <Button
@@ -40,28 +50,27 @@ const MFSTransfer = () => {
             className="flex items-center justify-center py-4"
             onClick={() => setSelectedMFS(mfs.name)}
           >
-            {mfs.img ? (
+            {mfs.img && (
               <img
                 src={mfs.img}
                 alt={mfs.name}
                 className="h-12 w-auto object-contain"
               />
-            ) : (
-              mfs.icon
             )}
           </Button>
         ))}
       </div>
 
-      {selectedMFS === 'bKash' && (
+      {/* Transfer Form */}
+      {selectedMFS && (
         <Card>
           <CardHeader>
-            <CardTitle>bKash Transfer Details</CardTitle>
+            <CardTitle>{selectedMFS} Transfer Details</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <Label htmlFor="accountNumber">bKash Account Number</Label>
+                <Label htmlFor="accountNumber">{selectedMFS} Account Number</Label>
                 <Input
                   id="accountNumber"
                   type="text"
