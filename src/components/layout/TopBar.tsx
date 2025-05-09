@@ -19,14 +19,14 @@ const TopBar = ({ onMenuClick, isSidebarOpen }: TopBarProps) => {
   const { user, logout } = useAuth();
 
   return (
-    <header className="bg-white border-b border-gray-200 py-2 px-4 flex items-center justify-between">
+    <header className="bg-gradient-to-r from-blue-500 via-blue-400 to-lime-500 border-b border-gray-200 py-2 px-4 flex items-center justify-between">
       <div className="flex items-center">
-        <Button variant="ghost" size="icon" onClick={onMenuClick} className="mr-2 text-gray-600">
+        <Button variant="ghost" size="icon" onClick={onMenuClick} className="mr-2 text-gray-100">
           <Menu className="h-5 w-5" />
         </Button>
         
         <div className="ml-4">
-          <h2 className="font-medium text-lg text-gray-800">
+          <h2 className="font-medium text-lg text-white">
             Hello, Abid Shahriar! Welcome back.
           </h2>
         </div>
@@ -35,7 +35,7 @@ const TopBar = ({ onMenuClick, isSidebarOpen }: TopBarProps) => {
       <div className="flex items-center space-x-4">
         {/* Notifications */}
         <div className="relative">
-          <Button variant="ghost" size="icon" className="relative text-gray-600">
+          <Button variant="ghost" size="icon" className="relative text-white">
             <Bell className="h-5 w-5" />
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
           </Button>
