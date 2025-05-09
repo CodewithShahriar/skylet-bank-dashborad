@@ -25,6 +25,29 @@ const CardContactless = () => (
   </div>
 );
 
+// Prepaid Card Component
+const PrepaidCard = () => (
+  <div className="relative overflow-hidden text-white p-5 rounded-xl shadow-lg w-full">
+    <img
+      src="https://i.ibb.co.com/tMjGvWgv/Whats-App-Image-2025-05-10-at-02-00-20-7c89c285.jpg"
+      alt="Prepaid Card"
+      className="w-full h-full object-cover rounded-xl"
+    />
+  </div>
+);
+
+// Virtual Card Component
+const VirtualCard = () => (
+  <div className="relative overflow-hidden text-white p-5 rounded-xl shadow-lg w-full">
+    <img
+      src="https://i.ibb.co.com/B5TMy5bd/Whats-App-Image-2025-05-10-at-02-00-19-b3d6501d.jpg"
+      alt="Virtual Card"
+      className="w-full h-full object-cover rounded-xl"
+    />
+  </div>
+);
+
+// Debit Card Component
 const DebitCard = () => (
   <div className="relative overflow-hidden text-white p-5 rounded-xl shadow-lg w-full">
     <img
@@ -35,6 +58,7 @@ const DebitCard = () => (
   </div>
 );
 
+// Credit Card Component
 const CreditCardComponent = () => (
   <div className="relative overflow-hidden text-white p-5 rounded-xl shadow-lg w-full">
     <img
@@ -45,8 +69,9 @@ const CreditCardComponent = () => (
   </div>
 );
 
+// Card Details Component
 const CardDetails = ({ type, number, expiry, active, limit }: { 
-  type: 'Visa Debit' | 'Mastercard Credit', 
+  type: string, 
   number: string, 
   expiry: string,
   active: boolean,
@@ -60,24 +85,20 @@ const CardDetails = ({ type, number, expiry, active, limit }: {
             <span className="text-sm text-gray-500">Card Type</span>
             <span className="font-medium text-gray-700">{type}</span>
           </div>
-          
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-500">Card Number</span>
             <span className="font-medium text-gray-700">{number}</span>
           </div>
-          
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-500">Card Status</span>
             <span className={`px-2 py-1 ${active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'} text-xs rounded-full`}>
               {active ? 'Active' : 'Inactive'}
             </span>
           </div>
-          
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-500">Expiry Date</span>
             <span className="font-medium text-gray-700">{expiry}</span>
           </div>
-          
           {limit && (
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-500">Credit Limit</span>
@@ -96,6 +117,7 @@ const CardDetails = ({ type, number, expiry, active, limit }: {
   );
 };
 
+// Cards Component
 const Cards = () => {
   const { accounts } = useBankData();
   const [activeTab, setActiveTab] = useState('debit');
@@ -110,11 +132,14 @@ const Cards = () => {
         <TabsList className="mb-2">
           <TabsTrigger value="debit" className={activeTab === 'debit' ? 'data-[state=active]:bg-white data-[state=active]:text-gray-900' : ''}>Debit Card</TabsTrigger>
           <TabsTrigger value="credit" className={activeTab === 'credit' ? 'data-[state=active]:bg-white data-[state=active]:text-gray-900' : ''}>Credit Card</TabsTrigger>
+          <TabsTrigger value="prepaid" className={activeTab === 'prepaid' ? 'data-[state=active]:bg-white data-[state=active]:text-gray-900' : ''}>Prepaid Card</TabsTrigger>
+          <TabsTrigger value="virtual" className={activeTab === 'virtual' ? 'data-[state=active]:bg-white data-[state=active]:text-gray-900' : ''}>Virtual Card</TabsTrigger>
         </TabsList>
         
         <TabsContent value="debit">
+          {/* Debit Card Content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Primary Card */}
+            {/* Left Side: Card Display */}
             <div className="md:col-span-2 flex flex-col h-full">
               <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
                 <div className="flex justify-between mb-4">
@@ -127,7 +152,6 @@ const Cards = () => {
                   </div>
                 </div>
               </div>
-              
               <CardDetails 
                 type="Visa Debit"
                 number="**** **** **** 9703"
@@ -135,55 +159,37 @@ const Cards = () => {
                 active={true}
               />
             </div>
-            
-            {/* Card Activity */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Recent Activity</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="border-b border-gray-200 pb-2">
-                    <div className="flex items-center">
-                      <DollarSign className="h-4 w-4 mr-2 text-green-500" />
-                      <div>
-                        <p className="font-medium text-gray-800">Salary Deposit</p>
-                        <p className="text-xs text-gray-500">Today, 9:45 AM</p>
-                      </div>
-                    </div>
-                    <p className="text-right text-green-500 font-medium">+$3,500.00</p>
-                  </div>
-                  
-                  <div className="border-b border-gray-200 pb-2">
-                    <div className="flex items-center">
-                      <CardIcon className="h-4 w-4 mr-2 text-red-500" />
-                      <div>
-                        <p className="font-medium text-gray-800">Amazon Purchase</p>
-                        <p className="text-xs text-gray-500">Yesterday, 2:30 PM</p>
-                      </div>
-                    </div>
-                    <p className="text-right text-red-500 font-medium">-$129.99</p>
-                  </div>
-                  
-                  <div>
-                    <div className="flex items-center">
-                      <CardIcon className="h-4 w-4 mr-2 text-red-500" />
-                      <div>
-                        <p className="font-medium text-gray-800">Grocery Store</p>
-                        <p className="text-xs text-gray-500">May 8, 6:15 PM</p>
-                      </div>
-                    </div>
-                    <p className="text-right text-red-500 font-medium">-$82.47</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+
+            {/* Right Side: Additional Content */}
+            <div className="flex flex-col space-y-4">
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Card Benefits</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-5 text-sm text-gray-600">
+                    <li>Zero liability on unauthorized transactions</li>
+                    <li>Access to 24/7 customer support</li>
+                    <li>Exclusive discounts on partner merchants</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Spending Insights</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Track your spending patterns and manage your finances effectively.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </TabsContent>
-        
+
         <TabsContent value="credit">
+          {/* Credit Card Content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Credit Card */}
+            {/* Left Side: Card Display */}
             <div className="md:col-span-2 flex flex-col h-full">
               <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
                 <div className="flex justify-between mb-4">
@@ -196,7 +202,6 @@ const Cards = () => {
                   </div>
                 </div>
               </div>
-              
               <CardDetails 
                 type="Mastercard Credit"
                 number="**** **** **** 4365"
@@ -205,42 +210,118 @@ const Cards = () => {
                 limit={10000}
               />
             </div>
-            
-            {/* Credit Utilization */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Credit Utilization</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div className="bg-blue-600 h-2.5 rounded-full w-3/4"></div>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <div className="text-gray-700">Used: $7,561.47</div>
-                    <div className="text-gray-500">Total: $10,000.00</div>
-                  </div>
-                  
-                  <div className="border-t border-gray-200 pt-4 mt-4">
-                    <div className="flex justify-between mb-2">
-                      <div className="flex items-center">
-                        <ShieldCheck className="h-4 w-4 mr-2 text-gray-600" />
-                        <span className="text-gray-700">Payment Protection</span>
-                      </div>
-                      <span className="text-green-500">Active</span>
-                    </div>
-                    
-                    <div className="flex justify-between">
-                      <div className="flex items-center">
-                        <Globe className="h-4 w-4 mr-2 text-gray-600" />
-                        <span className="text-gray-700">International Usage</span>
-                      </div>
-                      <span className="text-red-500">Disabled</span>
-                    </div>
+
+            {/* Right Side: Additional Content */}
+            <div className="flex flex-col space-y-4">
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Reward Points</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Earn reward points on every transaction and redeem them for exciting offers.</p>
+                </CardContent>
+              </Card>
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Credit Limit</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Your current credit limit is <strong>$10,000</strong>. Upgrade your limit for more flexibility.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="prepaid">
+          {/* Prepaid Card Content */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Left Side: Card Display */}
+            <div className="md:col-span-2 flex flex-col h-full">
+              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
+                <div className="flex justify-between mb-4">
+                  <h3 className="font-medium text-gray-800">Prepaid Card</h3>
+                  <span className="text-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
+                </div>
+                <div className="w-full max-w-md mx-auto">
+                  <div className="relative transition-all duration-200 transform hover:scale-105">
+                    <PrepaidCard />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              <CardDetails 
+                type="Prepaid Travel Card"
+                number="**** **** **** 1234"
+                expiry="08/28"
+                active={true}
+              />
+            </div>
+
+            {/* Right Side: Additional Content */}
+            <div className="flex flex-col space-y-4">
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Travel Benefits</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Enjoy exclusive travel benefits and discounts on international transactions.</p>
+                </CardContent>
+              </Card>
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Reload Options</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Easily reload your prepaid card anytime, anywhere.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="virtual">
+          {/* Virtual Card Content */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Left Side: Card Display */}
+            <div className="md:col-span-2 flex flex-col h-full">
+              <div className="p-5 bg-white rounded-lg mb-4 border border-gray-200">
+                <div className="flex justify-between mb-4">
+                  <h3 className="font-medium text-gray-800">Virtual Card</h3>
+                  <span className="text-sm bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Active</span>
+                </div>
+                <div className="w-full max-w-md mx-auto">
+                  <div className="relative transition-all duration-200 transform hover:scale-105">
+                    <VirtualCard />
+                  </div>
+                </div>
+              </div>
+              <CardDetails 
+                type="Virtual Card"
+                number="**** **** **** 5678"
+                expiry="01/30"
+                active={true}
+              />
+            </div>
+
+            {/* Right Side: Additional Content */}
+            <div className="flex flex-col space-y-4">
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Online Security</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Your virtual card ensures secure online transactions with dynamic CVV.</p>
+                </CardContent>
+              </Card>
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Instant Issuance</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">Get your virtual card instantly and start using it for online payments.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </TabsContent>
       </Tabs>
