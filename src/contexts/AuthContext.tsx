@@ -79,10 +79,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     setIsLoading(false);
     toast({
-      title: "লগইন ব্যর্থ হয়েছে",
-      description: "ইউজারনেম বা পাসওয়ার্ড ভুল",
+      title: "Login Failed",
+      description: "Incorrect username or password",
       variant: "destructive"
-    });
+        });
     return false;
   };
 
