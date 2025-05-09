@@ -1,21 +1,35 @@
-
 import BankCards from '@/components/dashboard/BankCards';
 import MonthlyOverview from '@/components/dashboard/MonthlyOverview';
 import QuickActions from '@/components/dashboard/QuickActions';
 import TransactionsList from '@/components/dashboard/TransactionsList';
 import PromotionBanner from '@/components/dashboard/PromotionBanner';
+import { useBankData } from '@/contexts/BankDataContext';
 
 const Dashboard = () => {
+  const { getCurrentAccount } = useBankData();
+  const account = getCurrentAccount();
+
+  const totalBalance = account?.balance
+    ? new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+      }).format(account.balance)
+    : '$0.00';
+
   return (
     <div className="space-y-6 animate-fade-in">
-      <h1 className="text-2xl font-bold text-gray-800">
-        SKYLET BANK LTD Dashboard
+      <h1 className="text-2xl font-bold text-gray-800 flex items-center justify-between">
+        <span>SKYLET BANK LTD Dashboard</span>
+        <span className="text-lg font-medium text-gray-600 flex items-center">
+          Total Balance: {totalBalance}
+          <span className="ml-2 h-3 w-3 bg-green-500 rounded-full animate-ping"></span>
+        </span>
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <div className="mb-6">
-            {/* <h2 className="text-xl font-medium mb-4 text-gray-700">My Cards</h2> */}
             <BankCards />
           </div>
           
