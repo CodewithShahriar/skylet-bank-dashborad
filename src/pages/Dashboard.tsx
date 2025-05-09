@@ -64,7 +64,9 @@ const Dashboard = () => {
               >
                 Withdraw
               </button>
-              <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
+              <button 
+              onClick={() => navigate('/dashboard/mfs-transfer')}
+               className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
                 MFS Transfer
               </button>
               <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">

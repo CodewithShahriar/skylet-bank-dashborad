@@ -4,13 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useNavigate } from 'react-router-dom';
-import { Bkash, Rocket, Nagad, Upay } from 'lucide-react'; // Replace with actual icons
+import { Banknote, Rocket, DollarSign, CreditCard } from 'lucide-react'; // Replace with actual icons
 
 const MFS_OPTIONS = [
-  { name: 'bKash', icon: <Bkash className="w-6 h-6" /> },
+  { name: 'bKash', icon: <Banknote className="w-6 h-6" /> },
   { name: 'Rocket', icon: <Rocket className="w-6 h-6" /> },
-  { name: 'Nagad', icon: <Nagad className="w-6 h-6" /> },
-  { name: 'Upay', icon: <Upay className="w-6 h-6" /> },
+  { name: 'Nagad', icon: <DollarSign className="w-6 h-6" /> },
+  { name: 'Upay', icon: <CreditCard className="w-6 h-6" /> },
 ];
 
 const MFSTransfer = () => {
