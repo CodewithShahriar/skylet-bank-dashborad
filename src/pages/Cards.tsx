@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PlusCircle, ShieldCheck, Globe, CreditCard as CardIcon, DollarSign, Zap, Lock, RefreshCw, ShoppingCart, Film, Coffee, Plane } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Globe, CreditCard as CardIcon, DollarSign, Zap, Lock, RefreshCw, ShoppingCart, Film, Coffee, Plane, Utensils, Car, Music } from 'lucide-react';
 import { useBankData } from '@/contexts/BankDataContext';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState } from 'react';
@@ -175,53 +175,53 @@ const Cards = () => {
                           <ShoppingCart size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <h4 className="font-medium text-gray-800">Shwapno - Gulshan</h4>
                           <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
                         </div>
                       </div>
-                      <span className="font-medium text-gray-800">- $120.00</span>
+                      <span className="font-medium text-gray-800">-  ৳ 2540</span>
                     </li>
 
                     {/* Transaction 2 */}
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <div className="p-2 bg-green-50 text-green-600 rounded-full">
-                          <Film size={20} />
+                        <div className="p-2 bg-gray-50 text-gray-600 rounded-full">
+                          <CardIcon size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <h4 className="font-medium text-gray-800">City Bank ATM Withdraw</h4>
                           <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
                         </div>
                       </div>
-                      <span className="font-medium text-gray-800">- $15.99</span>
+                      <span className="font-medium text-gray-800">- ৳ 15000</span>
                     </li>
 
                     {/* Transaction 3 */}
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <div className="p-2 bg-yellow-50 text-yellow-600 rounded-full">
-                          <Coffee size={20} />
+                        <div className="p-2 bg-orange-50 text-orange-600 rounded-full">
+                          <Utensils size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <h4 className="font-medium text-gray-800">Herfy Banani</h4>
                           <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
                         </div>
                       </div>
-                      <span className="font-medium text-gray-800">- $8.50</span>
+                      <span className="font-medium text-gray-800">- ৳ 1500</span>
                     </li>
 
                     {/* Transaction 4 */}
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <div className="p-2 bg-red-50 text-red-600 rounded-full">
-                          <Plane size={20} />
+                         <Utensils size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <h4 className="font-medium text-gray-800">Burger King</h4>
                           <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
                         </div>
                       </div>
-                      <span className="font-medium text-gray-800">- $500.00</span>
+                      <span className="font-medium text-gray-800">- ৳ 1330</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -308,7 +308,7 @@ const Cards = () => {
                           <ShoppingCart size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <h4 className="font-medium text-gray-800">Daraz BD</h4>
                           <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
                         </div>
                       </div>
@@ -322,7 +322,7 @@ const Cards = () => {
                           <Film size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <h4 className="font-medium text-gray-800">NOVO Cinemas</h4>
                           <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
                         </div>
                       </div>
@@ -336,7 +336,7 @@ const Cards = () => {
                           <Coffee size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <h4 className="font-medium text-gray-800">Gloria Jean's Coffees</h4>
                           <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
                         </div>
                       </div>
@@ -344,18 +344,7 @@ const Cards = () => {
                     </li>
 
                     {/* Transaction 4 */}
-                    <li className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <div className="p-2 bg-red-50 text-red-600 rounded-full">
-                          <Plane size={20} />
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
-                          <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
-                        </div>
-                      </div>
-                      <span className="font-medium text-gray-800">- $500.00</span>
-                    </li>
+                    
                   </ul>
                 </CardContent>
               </Card>
@@ -402,7 +391,7 @@ const Cards = () => {
                           <ShoppingCart size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <h4 className="font-medium text-gray-800">Duty Free - DXB Airport</h4>
                           <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
                         </div>
                       </div>
@@ -412,11 +401,11 @@ const Cards = () => {
                     {/* Transaction 2 */}
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <div className="p-2 bg-green-50 text-green-600 rounded-full">
-                          <Film size={20} />
+                        <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
+                          <Car size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Netflix</h4>
+                          <h4 className="font-medium text-gray-800">Uber Ride</h4>
                           <p className="text-sm text-gray-500">May 9, 2025 • 8:00 PM</p>
                         </div>
                       </div>
@@ -444,7 +433,7 @@ const Cards = () => {
                           <Plane size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <h4 className="font-medium text-gray-800">Dubai Airlines</h4>
                           <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
                         </div>
                       </div>
@@ -493,10 +482,10 @@ const Cards = () => {
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
-                          <ShoppingCart size={20} />
+                           <Film size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Amazon</h4>
+                          <h4 className="font-medium text-gray-800">Amazon Prime</h4>
                           <p className="text-sm text-gray-500">May 10, 2025 • 10:30 AM</p>
                         </div>
                       </div>
@@ -521,10 +510,10 @@ const Cards = () => {
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <div className="p-2 bg-yellow-50 text-yellow-600 rounded-full">
-                          <Coffee size={20} />
+                          <Zap size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Starbucks</h4>
+                          <h4 className="font-medium text-gray-800">Google Play</h4>
                           <p className="text-sm text-gray-500">May 9, 2025 • 3:45 PM</p>
                         </div>
                       </div>
@@ -534,11 +523,23 @@ const Cards = () => {
                     {/* Transaction 4 */}
                     <li className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <div className="p-2 bg-red-50 text-red-600 rounded-full">
-                          <Plane size={20} />
+                        <div className="p-2 bg-gray-50 text-gray-600 rounded-full">
+                          <Globe size={20} />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-800">Delta Airlines</h4>
+                          <h4 className="font-medium text-gray-800">Fiverr - Service Payment</h4>
+                          <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
+                        </div>
+                      </div>
+                      <span className="font-medium text-gray-800">- $500.00</span>
+                    </li>
+                    <li className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-purple-50 text-purple-600 rounded-full">
+                          <Music size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-800">Spotify Premium</h4>
                           <p className="text-sm text-gray-500">May 8, 2025 • 1:15 PM</p>
                         </div>
                       </div>
