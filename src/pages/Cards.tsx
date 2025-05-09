@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 
 // Card Chip Component
 const CardChip = () => (
-  <div className="h-6 w-9 bg-yellow-200/80 rounded-md grid grid-cols-3 grid-rows-3 gap-px p-px">
+  <div className="h-6 w-9 bg-yellow-200/80  grid grid-cols-3 grid-rows-3 gap-px p-px">
     {Array(9).fill(0).map((_, i) => (
       <div key={i} className="bg-yellow-300/90" />
     ))}
@@ -80,8 +80,8 @@ const DebitCard = () => (
       
       <div className="mt-4 flex justify-between">
         <div>
-          <p className="text-white/70 text-xs">Card holder</p>
-          <h3 className="text-md font-bold">JOHN SMITH</h3>
+          {/* <p className="text-white/70 text-xs">Card holder</p> */}
+          <h3 className="text-md font-bold">Abid Shahriar</h3>
         </div>
         <div className="text-right">
           <p className="text-white/70 mb-1 text-xs">Expires</p>
@@ -89,7 +89,7 @@ const DebitCard = () => (
         </div>
       </div>
       
-      <div className="absolute bottom-2 right-5 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-lg">
+      <div className="absolute  bottom-0 right-14 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-lg">
         <span className="text-xs font-semibold">Balance</span>
         <p className="text-lg font-bold">$11,092.37</p>
       </div>
