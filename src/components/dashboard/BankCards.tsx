@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useToast } from "@/components/ui/use-toast";
 
 const CardChip = () => (
-  <div className="h-6 w-9 bg-yellow-200/80 rounded-md grid grid-cols-3 grid-rows-3 gap-px p-px">
+  <div className="h-6 w-9 bg-yellow-200/80 grid grid-cols-3 grid-rows-3 gap-px p-px">
     {Array(9).fill(0).map((_, i) => (
       <div key={i} className="bg-yellow-300/90" />
     ))}
@@ -137,7 +137,7 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
         </div>
         
         <div className="my-4">
-          <p className="text-white/70 mb-1 text-xs">Card number</p>
+          {/* <p className="text-white/70 mb-1 text-xs">Card number</p> */}
           <div className="flex items-center">
             <div className="font-mono text-lg font-bold tracking-wider">{cardNumber}</div>
             <button 
@@ -151,7 +151,7 @@ const BankCard = ({ cardType, className }: BankCardProps) => {
         
         <div className="flex justify-between items-end">
           <div>
-            <p className="text-white/70 mb-1 text-xs">Card holder</p>
+            {/* <p className="text-white/70 mb-1 text-xs">Card holder</p> */}
             <p className="font-medium tracking-wide">{account.name}</p>
           </div>
           
