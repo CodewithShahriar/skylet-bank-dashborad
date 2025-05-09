@@ -26,9 +26,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // Default test user
 const TEST_USER: User = {
   id: '12345',
-  username: 'testuser',
-  name: 'Test User',
-  avatar: '/assets/default-avatar.png',
+  username: 'AbidShahriar',
+  name: 'Abid Shahriar',
+  avatar: 'https://i.ibb.co.com/JRVphK0J/Whats-App-Image-2024-01-13-at-17-24-46-48b3caa5-modified.png',
 };
 
 // Test credentials

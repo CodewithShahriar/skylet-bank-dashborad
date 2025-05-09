@@ -42,7 +42,7 @@ const BankDataContext = createContext<BankDataContextType | undefined>(undefined
 const INITIAL_ACCOUNTS: Account[] = [
   {
     id: 'acc1',
-    name: 'Test User',
+    name: 'Abid Shahriar',
     accountNo: '4012 XXXX XXXX 9081',
     cardType: 'visa',
     balance: 15000.00,

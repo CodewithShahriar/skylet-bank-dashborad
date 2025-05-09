@@ -1,4 +1,3 @@
-
 import { Bell } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -28,7 +27,7 @@ const TopBar = ({ onMenuClick, isSidebarOpen }: TopBarProps) => {
         
         <div className="ml-4">
           <h2 className="font-medium text-lg text-gray-800">
-            Hello, {user?.name || 'User'}! Welcome back.
+            Hello, Abid Shahriar! Welcome back.
           </h2>
         </div>
       </div>
