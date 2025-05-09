@@ -33,7 +33,7 @@ const NavItem = ({ to, icon, label, isActive }: NavItemProps) => (
       "flex items-center px-4 py-3 rounded-lg transition-colors duration-150",
       isActive 
         ? "bg-blue-50 text-blue-600 font-medium" 
-        : "text-gray-600 hover:bg-gray-50"
+        : "text-gray-900 hover:bg-gray-50"
     )}
   >
     <span className="mr-3">{icon}</span>
@@ -44,9 +44,10 @@ const NavItem = ({ to, icon, label, isActive }: NavItemProps) => (
 const Sidebar = ({ isOpen, onClose, isMobile }: SidebarProps) => {
   const location = useLocation();
   const { logout } = useAuth();
-  
+
+  // Determine if a menu item is active based on the exact path
   const isActive = (path: string) => {
-    return location.pathname === path || location.pathname.startsWith(`${path}/`);
+    return location.pathname === path;
   };
 
   return (
@@ -62,7 +63,7 @@ const Sidebar = ({ isOpen, onClose, isMobile }: SidebarProps) => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 z-30 h-screen bg-gradient-to-br from-blue-500 via-green-400 to-purple-500 border-r border-gray-200 shadow-sm transition-all duration-300 ease-in-out",
+          "fixed top-0 left-0 z-30 h-screen bg-gradient-to-br from-blue-500 via-green-400 to-purple-000 border-r border-gray-200 shadow-sm transition-all duration-300 ease-in-out",
           isOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full", 
           isMobile ? "z-50" : "",
         )}
