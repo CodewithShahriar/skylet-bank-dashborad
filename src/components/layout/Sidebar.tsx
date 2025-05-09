@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
@@ -63,7 +62,7 @@ const Sidebar = ({ isOpen, onClose, isMobile }: SidebarProps) => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 z-30 h-screen bg-white border-r border-gray-200 shadow-sm transition-all duration-300 ease-in-out",
+          "fixed top-0 left-0 z-30 h-screen bg-gradient-to-br from-blue-500 via-green-400 to-purple-500 border-r border-gray-200 shadow-sm transition-all duration-300 ease-in-out",
           isOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full", 
           isMobile ? "z-50" : "",
         )}
