@@ -3,10 +3,12 @@ import MonthlyOverview from '@/components/dashboard/MonthlyOverview';
 import QuickActions from '@/components/dashboard/QuickActions';
 import TransactionsList from '@/components/dashboard/TransactionsList';
 import { useBankData } from '@/contexts/BankDataContext';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Dashboard = () => {
   const { getCurrentAccount } = useBankData();
   const account = getCurrentAccount();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const totalBalance = account?.balance
     ? new Intl.NumberFormat('en-US', {
@@ -50,7 +52,11 @@ const Dashboard = () => {
           <div>
             <h2 className="text-xl font-medium mb-4 text-gray-700">Quick Access</h2>
             <div className="grid grid-cols-2 gap-4">
-              <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
+              <button
+                onClick={() => navigate('/dashboard/transfer')}
+ // Redirect to Transfer page
+                className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300"
+              >
                 Transfer Money
               </button>
               <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-medium py-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
