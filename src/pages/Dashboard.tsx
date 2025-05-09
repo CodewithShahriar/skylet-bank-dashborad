@@ -2,7 +2,6 @@ import BankCards from '@/components/dashboard/BankCards';
 import MonthlyOverview from '@/components/dashboard/MonthlyOverview';
 import QuickActions from '@/components/dashboard/QuickActions';
 import TransactionsList from '@/components/dashboard/TransactionsList';
-import PromotionBanner from '@/components/dashboard/PromotionBanner';
 import { useBankData } from '@/contexts/BankDataContext';
 
 const Dashboard = () => {
@@ -45,16 +44,27 @@ const Dashboard = () => {
               <h2 className="text-xl font-medium mb-4 text-gray-700">Monthly Overview</h2>
               <MonthlyOverview />
             </div>
-            
-            <div className="mt-6">
-              <h2 className="text-xl font-medium mb-4 text-gray-700">Quick Access</h2>
-              <QuickActions />
-            </div>
           </div>
           
+          {/* Quick Access Options */}
           <div>
-            <PromotionBanner />
-            
+            <h2 className="text-xl font-medium mb-4 text-gray-700">Quick Access</h2>
+            <div className="grid grid-cols-2 gap-4">
+              <button className="bg-blue-500 text-white font-medium py-4 rounded-lg shadow hover:bg-blue-600 transition">
+                Transfer Money
+              </button>
+              <button className="bg-green-500 text-white font-medium py-4 rounded-lg shadow hover:bg-green-600 transition">
+                Withdraw
+              </button>
+              <button className="bg-purple-500 text-white font-medium py-4 rounded-lg shadow hover:bg-purple-600 transition">
+                Mobile Topup
+              </button>
+              <button className="bg-yellow-500 text-white font-medium py-4 rounded-lg shadow hover:bg-yellow-600 transition">
+                Add Funds
+              </button>
+            </div>
+
+            {/* Transactions Section */}
             <div className="bg-white border border-gray-200 p-5 rounded-lg shadow-sm mt-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-medium text-gray-700">My Transactions</h2>
