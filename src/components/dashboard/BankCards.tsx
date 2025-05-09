@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useBankData } from '@/contexts/BankDataContext';
 
 interface CardProps {
@@ -9,10 +9,10 @@ interface CardProps {
 const Card = ({ imageUrl, cardType }: CardProps) => {
   const { getCurrentAccount } = useBankData();
   const account = getCurrentAccount();
-  const [showBalance, setShowBalance] = useState(false);
+
+  if (!account) return null;
 
   const formattedBalance = useMemo(() => {
-    if (!account) return '0.00';
     const balance = cardType === 'credit' ? account.balance * 0.7 : account.balance;
     return new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 2,
@@ -20,28 +20,22 @@ const Card = ({ imageUrl, cardType }: CardProps) => {
     }).format(balance);
   }, [account, cardType]);
 
-  if (!account) return null;
-
   return (
-    <div
-      className="relative w-full h-57 rounded-xl overflow-hidden shadow-md cursor-pointer"
-      onClick={() => setShowBalance(!showBalance)}
-    >
+    <div className="relative w-full h-57 rounded-xl overflow-hidden shadow-md group">
+      {/* Card image */}
       <img
         src={imageUrl}
         alt={`${cardType} Card`}
-        className={`w-full h-full object-cover transition duration-300 ${
-          showBalance ? 'blur-sm brightness-75' : ''
-        }`}
+        className="w-full h-full object-cover transition duration-300 group-hover:blur-sm group-hover:brightness-75"
       />
-      {showBalance && (
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-lg shadow-lg text-center">
-            <p className="text-gray-700 text-sm font-semibold">Balance</p>
-            <h2 className="text-xl font-bold text-gray-900">${formattedBalance}</h2>
-          </div>
+
+      {/* Hover balance overlay */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+        <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-lg shadow-lg text-center">
+          <p className="text-gray-700 text-sm font-semibold">Balance</p>
+          <h2 className="text-xl font-bold text-gray-900">${formattedBalance}</h2>
         </div>
-      )}
+      </div>
     </div>
   );
 };
