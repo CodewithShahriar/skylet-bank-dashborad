@@ -86,6 +86,7 @@ const AccountOpeningForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   
   const form = useForm<AccountFormData>({
     defaultValues: {
@@ -372,10 +373,10 @@ const AccountOpeningForm = () => {
                       className="grid grid-cols-2 gap-4"
                     >
                       {[
-                        { value: 'USD', label: 'US Dollar (USD)' },
-                        { value: 'EUR', label: 'Euro (EUR)' },
-                        { value: 'GBP', label: 'British Pound (GBP)' },
-                        { value: 'JPY', label: 'Japanese Yen (JPY)' },
+                        { value: 'BDT', label: 'Bangladeshi Taka (BDT)' },
+                        // { value: 'EUR', label: 'Euro (EUR)' },
+                        // { value: 'GBP', label: 'British Pound (GBP)' },
+                        // { value: 'JPY', label: 'Japanese Yen (JPY)' },
                       ].map((option) => (
                         <div key={option.value} className="flex items-center space-x-2 border rounded-md p-3 cursor-pointer hover:bg-muted">
                           <RadioGroupItem value={option.value} id={`currency-${option.value}`} />
@@ -577,7 +578,24 @@ const AccountOpeningForm = () => {
                 <FormItem>
                   <FormLabel>Create Password</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder="Enter a strong password" {...field} />
+                    <div className="relative">
+                      <Input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter a strong password"
+                        {...field}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute inset-y-0 right-3 flex items-center text-gray-500"
+                      >
+                        {showPassword ? (
+                          <Lock className="h-5 w-5" />
+                        ) : (
+                          <Lock className="h-5 w-5" />
+                        )}
+                      </button>
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
