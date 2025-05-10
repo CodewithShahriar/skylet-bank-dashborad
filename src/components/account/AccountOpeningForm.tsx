@@ -86,7 +86,6 @@ const AccountOpeningForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   
   const form = useForm<AccountFormData>({
     defaultValues: {
@@ -578,24 +577,7 @@ const AccountOpeningForm = () => {
                 <FormItem>
                   <FormLabel>Create Password</FormLabel>
                   <FormControl>
-                    <div className="relative">
-                      <Input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Enter a strong password"
-                        {...field}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute inset-y-0 right-3 flex items-center text-gray-500"
-                      >
-                        {showPassword ? (
-                          <Lock className="h-5 w-5" />
-                        ) : (
-                          <Lock className="h-5 w-5" />
-                        )}
-                      </button>
-                    </div>
+                    <Input type="password" placeholder="Enter a strong password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
