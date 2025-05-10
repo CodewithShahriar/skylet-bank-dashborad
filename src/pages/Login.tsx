@@ -39,7 +39,7 @@ const Login = () => {
         <div className="text-center mb-3">
           {/* Updated Skylet Bank Gradient */}
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-green-500 to-purple-600">
-            Skylet Bank
+            Skylet Bank Ltd
           </h1>
           <p className="text-gray-400 mt-2">Online Banking Portal</p>
         </div>

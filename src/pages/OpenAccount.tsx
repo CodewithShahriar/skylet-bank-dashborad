@@ -15,8 +15,8 @@ const OpenAccount = () => {
           </Link>
           
           <div className="text-center">
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-skylet-blue via-skylet-light-blue to-skylet-green">
-              Skylet Bank
+            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 via-green-500 to-purple-900">
+              Skylet Bank Ltd
             </h1>
             <h2 className="text-2xl font-semibold text-gray-800 mt-3">Open a New Account</h2>
             <p className="text-gray-600 mt-2 max-w-lg mx-auto">
