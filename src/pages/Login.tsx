@@ -1,6 +1,5 @@
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -13,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { login } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use useNavigate hook to get the navigation function
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +26,7 @@ const Login = () => {
     try {
       const success = await login(username, password);
       if (success) {
-        navigate('/dashboard');
+        navigate('/dashboard'); // Navigate to dashboard on successful login
       }
     } finally {
       setIsSubmitting(false);
@@ -106,7 +105,8 @@ const Login = () => {
           
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center w-full">
-             <Button 
+              {/* Use Link for internal navigation */}
+              <Button 
                 variant="outline" 
                 className="w-full border-border/50 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                 asChild
@@ -114,10 +114,6 @@ const Login = () => {
                 <Link to="/open-account">Click here to Open new Account</Link>
               </Button>
             </div>
-            
-            {/* <div className="text-xs text-center text-muted-foreground">
-              Test credentials: testuser / 123456
-            </div> */}
           </CardFooter>
         </Card>
         

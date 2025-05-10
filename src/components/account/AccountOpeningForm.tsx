@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { 
-  User, MapPin, CreditCard, Briefcase, FileUpload, 
+  User, MapPin, CreditCard, Briefcase, Upload, 
   Lock, FileText, CheckCircle 
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -34,7 +34,7 @@ const steps: Step[] = [
   { id: 2, title: "Address", icon: <MapPin className="h-5 w-5" /> },
   { id: 3, title: "Account Type", icon: <CreditCard className="h-5 w-5" /> },
   { id: 4, title: "Employment", icon: <Briefcase className="h-5 w-5" /> },
-  { id: 5, title: "Documents", icon: <FileUpload className="h-5 w-5" /> },
+  { id: 5, title: "Documents", icon: <Upload className="h-5 w-5" /> },
   { id: 6, title: "Security", icon: <Lock className="h-5 w-5" /> },
   { id: 7, title: "Terms", icon: <FileText className="h-5 w-5" /> },
   { id: 8, title: "Review", icon: <CheckCircle className="h-5 w-5" /> }
@@ -672,7 +672,7 @@ const AccountOpeningForm = () => {
           </div>
         );
         
-      case 8:
+      case 8: {
         const values = form.getValues();
         return (
           <div className="space-y-6">
@@ -767,7 +767,7 @@ const AccountOpeningForm = () => {
               
               <div>
                 <h3 className="font-medium text-md mb-2 flex items-center">
-                  <FileUpload className="h-4 w-4 mr-2" /> Documents
+                  <Upload className="h-4 w-4 mr-2" /> Documents
                   <Button 
                     type="button" 
                     variant="ghost" 
@@ -808,6 +808,7 @@ const AccountOpeningForm = () => {
             </div>
           </div>
         );
+      }
         
       default:
         return null;
@@ -908,7 +909,7 @@ const AccountOpeningForm = () => {
         <div className="relative h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
             className="h-full bg-blue-600 transition-all duration-300"
-            style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
+            style={{ width: `${((currentStep - 1) / Math.max(steps.length - 1, 1)) * 100}%` }}
           />
         </div>
       </div>
