@@ -11,6 +11,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false); // State for modal
   const { login } = useAuth();
   const navigate = useNavigate(); // Use useNavigate hook to get the navigation function
 
@@ -31,6 +32,14 @@ const Login = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleForgotPassword = () => {
+    setIsForgotPasswordOpen(true); // Open the modal
+  };
+
+  const closeForgotPasswordModal = () => {
+    setIsForgotPasswordOpen(false); // Close the modal
   };
 
   return (
@@ -71,9 +80,13 @@ const Login = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="password" className="text-foreground">Password</Label>
-                  <a href="#" className="text-xs text-blue-500 hover:underline">
+                  <button
+                    type="button"
+                    onClick={handleForgotPassword}
+                    className="text-xs text-blue-500 hover:underline"
+                  >
                     Forgot password?
-                  </a>
+                  </button>
                 </div>
                 <Input 
                   id="password"
@@ -121,6 +134,27 @@ const Login = () => {
           &copy; {new Date().getFullYear()} Skylet Bank. All rights reserved.
         </div>
       </div>
+
+      {/* Forgot Password Modal */}
+      {isForgotPasswordOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+            <h2 className="text-lg font-bold text-center mb-4">Forgot Password</h2>
+            <p className="text-sm text-gray-600 text-center mb-6">
+              
+              Password reset instructions have been sent to registered email.
+            </p>
+            <div className="flex justify-center">
+                <Button
+                onClick={closeForgotPasswordModal}
+                className="bg-gradient-to-r from-blue-400 via-green-600 to-purple-500 text-white px-4 py-2 rounded-lg hover:scale-105 hover:shadow-lg transition-transform duration-300"
+                >
+                Close
+                </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
