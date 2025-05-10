@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -105,12 +106,12 @@ const Login = () => {
           
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center w-full">
-              <Button 
+             <Button 
                 variant="outline" 
-                className="w-full opacity-50 cursor-not-allowed border-border/50 hover:bg-muted/20"
-                disabled
+                className="w-full border-border/50 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                asChild
               >
-                Click here to open a new account
+                <Link to="/open-account">Click here to Open new Account</Link>
               </Button>
             </div>
             

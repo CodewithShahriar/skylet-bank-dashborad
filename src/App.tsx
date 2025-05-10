@@ -22,6 +22,8 @@ import Support from "@/pages/Support";
 import Settings from "@/pages/Settings";
 import MobileTopup from "@/pages/MobileTopup";
 import NotFound from "@/pages/NotFound";
+// Ensure the correct path to the OpenAccount component
+import OpenAccount from "@/pages/OpenAccount";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,7 @@ const App = () => (
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<Index />} />
+              <Route path="/open-account" element={<OpenAccount />} />
               
               <Route path="/dashboard" element={<DashboardLayout />}>
                 <Route index element={<Dashboard />} />
