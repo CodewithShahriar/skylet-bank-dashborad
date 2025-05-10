@@ -839,8 +839,8 @@ const AccountOpeningForm = () => {
               Download Application Copy (PDF)
             </Button>
             
-            <Button>
-              Return to Homepage
+            <Button onClick={() => window.location.href = "/login"}>
+              Return to Login Page
             </Button>
           </div>
         </CardContent>
